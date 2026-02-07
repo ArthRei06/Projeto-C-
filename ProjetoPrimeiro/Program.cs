@@ -3,7 +3,8 @@ using System.Text.Encodings.Web;
 using System.Collections.Generic;
 
 List<String> listaBandas = new List<String> { "Beatles", "Mala Sem Alça", "Desejo de Menina" };
-void ExibirMensagemBoasVindas()
+    
+void ExibirLogo()
 {
     Console.WriteLine(@"
 ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
@@ -12,9 +13,9 @@ void ExibirMensagemBoasVindas()
 ░╚═══██╗██║░░██╗██╔══██╗██╔══╝░░██╔══╝░░██║╚████║  ░╚═══██╗██║░░██║██║░░░██║██║╚████║██║░░██║
 ██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
 ╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░");
-    Console.WriteLine("Seja Bem-Vindo!");
+    Console.WriteLine("Seja Bem-Vindo! Ao Screen Sound de Bandas");
 }
-void ExibirOpções()
+void ExibirOpçoes()
 {
     Console.WriteLine("\nDigite 1 para registrar uma banda:");
     Console.WriteLine("Digite 2 para mostrar todas as bandas:");
@@ -27,9 +28,9 @@ void ExibirOpções()
     int escolhido1 = int.Parse(escolhido);
     switch (escolhido1)
     {
-        case 1: Console.WriteLine("Voce escolheu a opção" + escolhido1);
+        case 1: RegistrarBandas();
             break;
-        case 2: Console.WriteLine("Voce escolheu a opção" + escolhido1);
+        case 2: MostrarTodasBandas();
             break;
         case 3: Console.WriteLine("Voce escolheu a opção" + escolhido1);
             break;
@@ -41,8 +42,35 @@ void ExibirOpções()
             break;
     }
 }
-ExibirMensagemBoasVindas();
-ExibirOpções();
+void RegistrarBandas()
+{
+
+    Console.Clear(); // limpa o console com o clear
+    Console.WriteLine("Registro de Bandas");
+    Console.Write("Digite o nome da banda: ");
+    string nomeBanda = Console.ReadLine()!;
+    listaBandas.Add(nomeBanda);
+    Console.WriteLine($"A banda: {nomeBanda} foi registrada com sucesso!");
+    Thread.Sleep(2000);
+    Console.Clear();
+    ExibirOpçoes(); // volta para o menu de opcoes 
+}
+void MostrarTodasBandas()
+{
+    Console.Clear();
+    Console.WriteLine("Exibindo todas as bandas:\n");
+    for (int i = 0; i < listaBandas.Count; i++)
+    {
+        Console.WriteLine($"Banda: {listaBandas[i]}");
+    }
+    Console.WriteLine("Digite uma tecla para voltar ao menu principal: ");
+    Console.ReadKey();
+    Console.Clear();
+    ExibirOpçoes();
+}
+
+ExibirLogo();
+ExibirOpçoes();
 void ExibirMedia()
 {
 
@@ -104,6 +132,7 @@ void jogoAleatorio()
 }
     Random aleatorio = new Random();
     int numeroSorteado = aleatorio.Next(1, 101);
+
 
 jogoAleatorio();
 Console.ReadKey();
