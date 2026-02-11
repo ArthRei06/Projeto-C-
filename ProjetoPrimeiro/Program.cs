@@ -1,7 +1,6 @@
 ﻿
 using System.Text.Encodings.Web;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 
 List<String> listaBandas = new List<String> { "Beatles", "Mala Sem Alça", "Desejo de Menina" };
     
@@ -47,7 +46,7 @@ void RegistrarBandas()
 {
 
     Console.Clear(); // limpa o console com o clear
-    ExibirTitulodasOpçoes("Registrado das Bandas: ");
+    Console.WriteLine("Registro de Bandas");
     Console.Write("Digite o nome da banda: ");
     string nomeBanda = Console.ReadLine()!;
     listaBandas.Add(nomeBanda);
@@ -59,14 +58,10 @@ void RegistrarBandas()
 void MostrarTodasBandas()
 {
     Console.Clear();
-    ExibirTitulodasOpçoes("Exibindo todas as bandas registradas: ");
-    //for (int i = 0; i < listaBandas.Count; i++)
-    //{
-        //Console.WriteLine($"Banda: {listaBandas[i]}");
-    //}
-    foreach (string banda in listaBandas) // para cada banda listada na lista de bandas, exiba a banda
+    Console.WriteLine("Exibindo todas as bandas:\n");
+    for (int i = 0; i < listaBandas.Count; i++)
     {
-        Console.WriteLine($"Banda : {listaBandas}");
+        Console.WriteLine($"Banda: {listaBandas[i]}");
     }
     Console.WriteLine("Digite uma tecla para voltar ao menu principal: ");
     Console.ReadKey();
@@ -76,15 +71,6 @@ void MostrarTodasBandas()
 
 ExibirLogo();
 ExibirOpçoes();
-void ExibirTitulodasOpçoes(string titulo)
-{
-    int quantLetras = titulo.Length;
-    string asteriscos = string.Empty.PadLeft(quantLetras, '*');
-    Console.WriteLine(asteriscos);
-    Console.WriteLine(titulo);
-    Console.WriteLine(asteriscos + "\n");
-}
-
 void ExibirMedia()
 {
 
@@ -149,71 +135,4 @@ void jogoAleatorio()
 
 
 jogoAleatorio();
-
-void CalcularDuasVariaveis()
-{
-    Console.WriteLine("Digite o valor de A:");
-    double A = double.Parse(Console.ReadLine());
-    Console.WriteLine("Digite o valor de B:");
-    double B = double.Parse(Console.ReadLine());
-    Console.WriteLine($"A soma de A + B = {A+B}");
-    Console.WriteLine($"A subtração de A - B = {A - B}");
-    Console.WriteLine($"A multiplicação de A vezes B = {A * B}");
-    if(B != 0)
-    {
-        Console.WriteLine($"A divisao de A sobre B = {A / B}");
-    }
-    else
-    {
-        Console.WriteLine("Não é possivel dividir por 0!");
-    }
-
-
-
-
-
-
-
-    
-}
-CalcularDuasVariaveis();
-
-    List<string> exercicios = new List<string>();
-
-    exercicios.Add("Desejo de menina");
-    exercicios.Add("Cypher");
-    exercicios.Add("Poesia acustica"); 
-    for (int i = 0; i < exercicios.Count; i++)
-    {
-        Console.WriteLine(exercicios[i]);
-    }
-
-
-void ListaElementos()
-{
-    List<int> soma = new List<int> {10,5,20,24};
-    int numeros = 0 ;
-    for (int i = 0; i < soma.Count; i++)
-    {
-        numeros += soma[i];
-
-    }
-    Console.WriteLine($"A soma da lista é : {numeros}");
-}
-ListaElementos();
-List<int> number = new List<int> {1,2,3,4,5,};
-for (int i = 0; i < number.Count; i++)
-{
-    if (number[i] % 2 == 0)
-    {
-        Console.WriteLine(number[i]);
-    }
-}
-foreach(int numero in number)
-{
-    if (numero % 2 == 0)
-    {
-        Console.WriteLine(numero);
-    }
-}
 Console.ReadKey();
