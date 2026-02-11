@@ -72,7 +72,7 @@ void MostrarTodasBandas()
     //}
     foreach (string banda in listaBandas) // para cada banda listada na lista de bandas, exiba a banda
     {
-        Console.WriteLine($"Banda : {listaBandas}");
+        Console.WriteLine($"Banda : {banda}");
     }
     Console.WriteLine("Digite uma tecla para voltar ao menu principal: ");
     Console.ReadKey();
@@ -207,6 +207,7 @@ void ListaElementos()
     Console.WriteLine($"A soma da lista é : {numeros}");
 }
 ListaElementos();
+
 List<int> number = new List<int> { 1, 2, 3, 4, 5, };
 for (int i = 0; i < number.Count; i++)
 {
